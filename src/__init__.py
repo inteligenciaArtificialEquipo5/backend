@@ -12,14 +12,15 @@ def create_app():
 
     app = Flask(__name__)
     app.config.from_object(Config)
-    print((app.config["MONGO_URL"]))
     # Inicializar la conexión a MongoDB con pymongo
     mongo_client = MongoClient(app.config["MONGO_URL"])
     db = mongo_client['bloque1AI']
 
     # Importar y registrar blueprints
     from .routes.predictionRoutes import prediction_bp
+    from .routes.modelRoutes import model_bp
 
     app.register_blueprint(prediction_bp)
+    app.register_blueprint(model_bp)
 
     return app
