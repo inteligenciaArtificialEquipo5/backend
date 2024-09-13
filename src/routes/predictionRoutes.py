@@ -55,3 +55,24 @@ def cryosleep_vip_transported():
     except Exception as e:
         # Manejar cualquier error inesperado
         return jsonify({"error": "An error occurred", "message": str(e)}), 404
+
+@prediction_bp.route('/predictions/age-transportation', methods=['GET'])
+def age_transportation():
+    try:
+        # Obtener los datos del controlador
+        data = get_age_data()
+        return jsonify(data), 200  # Retornar la respuesta en formato JSON
+    except Exception as e:
+        return jsonify({"error": str(e)}), 404
+
+@prediction_bp.route('/predictions/planet-destination', methods=['GET'])
+def planet_destination():
+    try:
+        # Llamar al controlador para obtener los datos procesados
+        data = get_planet_destination_data()
+
+        # Retornar los datos en formato JSON
+        return jsonify(data), 200
+    except Exception as e:
+        # Manejo de errores
+        return jsonify({"error": str(e)}), 404

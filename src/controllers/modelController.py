@@ -43,14 +43,13 @@ def predict(input_data, model):
 
         # Añadir columnas categóricas utilizando One-Hot Encoding manual para cada categoría
         # Codificación de HomePlanet
-        df_predict['HomePlanet_0.0'] = 1 if input_data['HomePlanet'] == '0' else 0
-        df_predict['HomePlanet_1.0'] = 1 if input_data['HomePlanet'] == '1' else 0
-        df_predict['HomePlanet_2.0'] = 1 if input_data['HomePlanet'] == '2' else 0
-
+        df_predict['HomePlanet_0.0'] = 1 if str(input_data['HomePlanet']) == '0' else 0
+        df_predict['HomePlanet_1.0'] = 1 if str(input_data['HomePlanet']) == '1' else 0
+        df_predict['HomePlanet_2.0'] = 1 if str(input_data['HomePlanet']) == '2' else 0
         # Codificación de Destination
-        df_predict['Destination_0.0'] = 1 if input_data['Destination'] == '0' else 0
-        df_predict['Destination_1.0'] = 1 if input_data['Destination'] == '1' else 0
-        df_predict['Destination_2.0'] = 1 if input_data['Destination'] == '2' else 0
+        df_predict['Destination_0.0'] = 1 if str(input_data['Destination']) == '0' else 0
+        df_predict['Destination_1.0'] = 1 if str(input_data['Destination']) == '1' else 0
+        df_predict['Destination_2.0'] = 1 if str(input_data['Destination']) == '2' else 0
 
         # Codificación de CryoSleep
         df_predict['CryoSleep_True'] = 1 if input_data['CryoSleep'] == True else 0
