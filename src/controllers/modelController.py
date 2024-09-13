@@ -53,10 +53,10 @@ def predict(input_data, model):
         df_predict['Destination_2.0'] = 1 if input_data['Destination'] == '2' else 0
 
         # Codificación de CryoSleep
-        df_predict['CryoSleep_True'] = 1 if input_data['CryoSleep'] == 'True' else 0
+        df_predict['CryoSleep_True'] = 1 if input_data['CryoSleep'] == True else 0
 
         # Codificación de VIP
-        df_predict['VIP_True'] = 1 if input_data['VIP'] == 'True' else 0
+        df_predict['VIP_True'] = 1 if input_data['VIP'] == True else 0
 
         # Codificación de CabinDeck
         df_predict['CabinDeck_B'] = 1 if input_data['CabinDeck'] == 'B' else 0

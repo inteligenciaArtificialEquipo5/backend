@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from ..controllers.predictionController import save_prediction, get_all_predictions, get_prediction_by_id
+from ..controllers.predictionController import *
 
 prediction_bp = Blueprint('prediction_bp', __name__)
 
@@ -37,3 +37,21 @@ def get_prediction_by_id_route(prediction_id):
         return jsonify(prediction), 200
     else:
         return jsonify({"message": "Predicción no encontrada"}), 404
+    
+
+@prediction_bp.route('/predictions/cryosleep-vip-transported', methods=['GET'])
+def cryosleep_vip_transported():
+    try:
+        # Llamar al controlador para obtener los datos procesados
+        data = get_cryosleep_vip_data()
+
+        # Verificar si los datos existen
+        if not data:
+            return jsonify({"error": "No data found"}), 404
+
+        # Retornar la respuesta en formato JSON
+        return jsonify(data), 200
+
+    except Exception as e:
+        # Manejar cualquier error inesperado
+        return jsonify({"error": "An error occurred", "message": str(e)}), 404
