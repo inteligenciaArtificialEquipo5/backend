@@ -12,5 +12,4 @@ CORS(app)
 # Punto de entrada principal del script, se ejecuta solo si el archivo es ejecutado directamente
 if __name__ == "__main__":
     # Ejecutar la aplicación Flask en modo depuración en el puerto 8080 y escuchando en todas las interfaces de red
-    app.run(ssl_context=('server.cert', 'server.key'),
-            debug=True, port=8080, host='0.0.0.0')
+    app.run(debug=True, port=8080, host='0.0.0.0')
