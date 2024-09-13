@@ -13,7 +13,7 @@ from .predictionController import save_prediction
 def load_model():
     # Construye la ruta completa del archivo del modelo
     model_path = os.path.join(os.path.dirname(
-        __file__), '..', 'model', 'model.pkl')
+        __file__), '..', 'model', 'model_xgboost.pkl')
 
     # Verifica si el archivo del modelo existe
     if not os.path.exists(model_path):
